@@ -7,7 +7,14 @@ const Questions = (props) => {
     <section className="container">
       <h1>Questions</h1>
       {questions.map((question) => {
-        return <Question key={question.id} {...question} />;
+        return (
+          <Question
+            key={question.id}
+            {...question}
+            activeId={props.activeId}
+            toggleQuestion={props.toggleQuestion}
+          />
+        );
       })}
     </section>
   );

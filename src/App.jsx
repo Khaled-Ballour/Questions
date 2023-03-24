@@ -3,9 +3,19 @@ import { useState } from 'react';
 import Questions from './Questions';
 const App = () => {
   const [questions, setQuestions] = useState(data);
+  const [activeId, setActiveId] = useState(null);
+
+  const toggleQuestion = (id) => {
+    const newActiveId = id === activeId;
+    newActiveId ? setActiveId(null) : setActiveId(id);
+  };
   return (
     <main>
-      <Questions questions={questions} />
+      <Questions
+        questions={questions}
+        activeId={activeId}
+        toggleQuestion={toggleQuestion}
+      />
     </main>
   );
 };
